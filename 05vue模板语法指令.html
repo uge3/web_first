@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>VUE使用之模板语法-todo-list</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<script  src="./vue.js"></script>
+	</head>
+
+	<body>
+		<div id="app">
+			<h1>{{msg}}</h1>
+			<div v-html="html4">			
+			</div>
+			<!-- v-model数据绑定 -->
+			<input type="text" v-model="msg2"/>
+			<button @click="submit">提交</button>
+			<li style="color: chocolate;">当前输入内容：{{msg2}}</li>
+			<ul>		
+					<!-- v-for 列表循环 -->
+				<li v-for="item of list">{{item}}</li>
+			</ul>
+		</div>
+		
+		<script>
+			var app = new Vue({
+				el:"#app",
+				data:{
+					msg:"VUE使用之模板语法-todo-list",
+					html4:`<div>HTML格式</div>`,
+					msg2:""	,
+					list:[]
+				},	
+				methods:{
+					submit:function(){
+						console.log(this.msg2)
+						this.list.push(this.msg2)//将内容加入到数组中
+						this.msg2=""  //清空输框中的内容
+					}
+				}							
+			})
+		</script>
+	</body>
+
+</html>

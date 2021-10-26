@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>VUE使用之模板插值</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<script  src="./vue.js"></script>
+	</head>
+
+	<body>
+		<div id="app">
+			<h1>{{msg}}</h1>
+					//v-html 表示为表达式
+			<div v-html="html4">
+				
+			</div>
+			<h2>{{chang.split('').reverse().join('--')}}</h2>
+		</div>
+		
+		<script>
+			var app = new Vue({
+				el:"#app",
+				data:{
+					msg:"普通文本",
+					html4:`<div>HTML格式</div>`,
+					chang:"文字切片反序再连接！"
+				},								
+			})
+		</script>
+	</body>
+
+</html>

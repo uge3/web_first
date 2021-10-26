@@ -7,19 +7,29 @@
 	<script src="./vue.js"></script>
 </head>
 <body>
-	<h1>测试一</h1>
+<h1>软件分类</h1>
+<div id="app">
+	<li id="test">工具类</li>
+</div>
 
-	<div id="app">
-		<div id="test">{{test}}</div>
-	</div>
 	<script>
-		var app = new Vue({
+		
+		var app =new Vue({
 			el:"#app",
 			data:{
-				test:'test2'
+				test:"输入法"
+
+			},
+			methods:{
+				demo:function() {
+					console.log('demo')
+				}
 
 			}
+
+			
 		})
 	</script>
+	
 </body>
 </html>

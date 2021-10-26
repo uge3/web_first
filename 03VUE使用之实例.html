@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<script  src="./vue.js"></script>
+	</head>
+
+	<body>
+		<div id="app">
+			{{count}}
+			<p><button @click="add">更新数据</button></p>
+			
+		</div>
+		<button onclick="app.$destroy()">销毁</button>
+		
+		<script>
+			var app = new Vue({
+				el:"#app",
+				data:{
+					count:1
+				},
+				methods:{
+					add:function(){
+						this.count ++;
+					},
+					test:function(){
+						console.log('methods')
+					}
+				},
+				//初始化数据监测和事件配置
+				beforeCreate:function(){
+					console.log('1-beforecCreat 初始化之后');
+					console.log(this.count)
+				},
+				//属性可用
+				created:function(){
+					console.log('2-created 创建完成');
+					console.log(this.count)
+				},
+				//挂载VUE实例的范围和内容
+				beforeMount:function(){
+					console.log('3-beforeMount 挂载之前');									
+				},
+				mounted:function(){
+					console.log('4-mounted 被创建');
+					console.log(this.$el)					
+				},
+				//等待数据更新
+				beforeUpdate:function(){
+					console.log('5-beforeUpdate 数据更新前');
+				},
+				//数据更新完成后
+				updated:function(){
+					console.log('6-updated 被更新后');					
+				},
+				//实例销毁前
+				beforeDestroy:function(){
+					console.log('7-befordDestroy 销毁之前 ');					
+				},
+				//实例销毁后
+				destroyed:function(){
+					console.log('8-destroyed 销毁后')
+				}
+			})
+		</script>
+	</body>
+
+</html>
